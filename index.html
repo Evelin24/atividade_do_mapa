@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interativo - Leaflet</title>
+
+  <!-- Importa o CSS do Leaflet para o estilo do mapa -->
+  <link rel="stylesheet" href="leaflet/leaflet.css" />
+
+  <style>
+    /* Define a altura e largura do mapa */
+    #map {
+      height: 700px;  /* AUMENTADO para ocupar mais espaço vertical */
+      width: 100%;    /* Ocupa toda a largura da tela */
+      border: 2px solid #444; /* Borda opcional só para visual */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mapa Interativo com Conteúdo Multimídia</h1>
+  <div id="map"></div> <!-- Aqui o mapa será exibido -->
+
+  <!-- Importa o JavaScript do Leaflet -->
+  <script src="leaflet/leaflet.js"></script>
+
+  <script>
+    // Cria o mapa dentro da div #map e centraliza em Teixeira de Freitas
+    var map = L.map('map').setView([-17.5392, -39.7426], 13);
+
+    // Adiciona as imagens de fundo (tiles) vindas do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Adiciona um marcador com popup contendo imagem e áudio
+    L.marker([-17.5392, -39.7426]).addTo(map)
+      .bindPopup(`
+        <b>Praça da Bíblia</b><br>
+        <img src="imagem.jpg" width="200"><br>
+        <audio controls src="audio.mp3"></audio>
+      `);
+  </script>
+
+</body>
+</html>
