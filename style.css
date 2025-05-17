@@ -1,0 +1,119 @@
+/* ===========================
+   Estilo do mapa (tela cheia)
+   =========================== */
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+/* ===========================
+   Estilo do popup Leaflet
+   =========================== */
+/* Limita o tamanho e centraliza o conteúdo do popup */
+.leaflet-popup-content-wrapper {
+  max-width: 380px !important;   /* largura máxima do popup */
+  max-height: 600px !important;  /* altura máxima do popup */
+  overflow: hidden !important;   /* evita conteúdo "vazar" */
+  padding: 0 !important;
+  user-select: none;
+  box-sizing: border-box;
+
+  /* centraliza o conteúdo do popup */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===========================
+   Conteúdo interno do popup
+   =========================== */
+.popup-content {
+  width: 100%;
+  max-width: 360px;
+  max-height: 580px;          /* limite para scroll interno */
+  overflow-y: auto;           /* barra de rolagem vertical se precisar */
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  box-sizing: border-box;
+  user-select: none;
+
+  /* organiza conteúdo em coluna e centraliza */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* JUSTIFICA os textos */
+  text-align: justify;
+}
+
+/* Estilo do título forte dentro do popup */
+.popup-content strong {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: center;  /* título continua centralizado */
+}
+
+/* ===========================
+   Slider de imagens
+   =========================== */
+.image-slider {
+  display: flex;             /* imagens em linha */
+  overflow-x: auto;          /* barra de rolagem horizontal */
+  gap: 8px;
+  height: 160px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* melhor scroll no mobile */
+}
+
+.image-slider img {
+  flex-shrink: 0;
+  width: 200px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.image-slider img:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Descrição abaixo do slider
+   =========================== */
+.description {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.3;
+  margin-top: auto;
+
+  /* texto justificado */
+  text-align: justify;
+}
+
+/* ===========================
+   Modal para imagem ampliada
+   =========================== */
+#modal {
+  display: none; /* escondido inicialmente */
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#modal img {
+  max-width: 98vw;
+  max-height: 98vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+}
+

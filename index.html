@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mapa Interativo - Leaflet com Slider</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1 style="text-align:center; margin: 12px 0;">Mapa Interativo com Slider e Modal</h1>
+  <div id="map"></div>
+
+  <!-- Modal para imagem ampliada -->
+  <div id="modal" style="display:none; 
+  position:fixed; 
+  top:0; left:0; right:0; bottom:0; 
+  background: rgba(0,0,0,0.8); 
+  justify-content:center; 
+  align-items:center; 
+  z-index:9999;">
+
+  <img src="" style="max-width:90vw; max-height:90vh; border-radius:8px;"/>
+  </div>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
