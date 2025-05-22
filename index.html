@@ -2,13 +2,34 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Mapa Interativo - Leaflet com Slider</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1 style="text-align:center; margin: 12px 0;">Mapa Interativo com Slider e Modal</h1>
+ <!-- Menu no topo com título acima do menu centralizado -->
+<header style="background-color: #102337; padding: 5px 0; height: 120px;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center; font-family: Arial, sans-serif;">
+    
+    <h1 style="color: white; margin: 0 0 20px;">Mapa Interativo</h1>
+    
+    <nav>
+      <ul style="display: flex; justify-content: center; align-items: center; gap: 15px; list-style: none; margin: 0; padding: 0;">
+        <button onclick="irParaLocal('itacare')" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">Itacaré</button>
+        <li style="color: white;">|</li>
+        <button onclick="irParaLocal('itabuna')" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">Itabuna</button>
+        <li style="color: white;">|</li>
+        <button onclick="irParaLocal('sp')" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">São Paulo</button>
+      </ul>
+    </nav>    
+  </div>
+</header>
+
+
+</body>
+</html>
+
+
   <div id="map"></div>
 
   <!-- Modal para imagem ampliada -->
@@ -22,7 +43,6 @@
 
   <img src="" style="max-width:90vw; max-height:90vh; border-radius:8px;"/>
   </div>
-
 
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script src="script.js"></script>
