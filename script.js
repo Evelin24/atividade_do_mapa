@@ -22,7 +22,6 @@ function createPopup(id, title, images, description) {
     `;
 }
 
-
 // Dados dos locais
 const locations = [
   {
@@ -48,11 +47,13 @@ const locations = [
   }
 ];
 
-// Adiciona marcadores e popups ao mapa
+// Adiciona marcadores e popups ao mapa e armazena os marcadores no objeto
 locations.forEach(loc => {
-  L.marker(loc.coords).addTo(map)
+  const marker = L.marker(loc.coords).addTo(map)
     .bindPopup(createPopup(loc.id, loc.title, loc.images, loc.desc))
     .on('popupopen', () => enableSlider(loc.id, loc.images.length));
+
+  loc.marker = marker; // ← armazena o marcador para uso nos botões
 });
 
 // Mostra a imagem no índice indicado, ativando e desativando classes
@@ -98,9 +99,17 @@ locations.forEach(loc => {
 // Fechar modal ao clicar fora da imagem
 const modal = document.getElementById('modal');
 modal.onclick = e => {
-  // Só fecha se clicar no fundo (não na imagem)
   if (e.target === modal) {
     modal.style.display = 'none';
     modal.querySelector('img').src = '';
   }
 };
+
+// ✅ Função que leva o mapa até o local e abre o popup
+function irParaLocal(id) {
+  const local = locations.find(loc => loc.id === id);
+  if (local) {
+    map.setView(local.coords, 15); // centraliza e ajusta o zoom
+    local.marker.openPopup(); // abre o popup do local
+  }
+}
